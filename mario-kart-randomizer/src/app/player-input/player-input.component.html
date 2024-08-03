@@ -1,0 +1,5 @@
+<div class="player-container" [ngStyle]="{'background-color': stateService.getColor(player.id)}">
+    <div class="player-num" [ngStyle]="{'color': 'dark'+stateService.getColor(player.id)}">P{{stateService.getIndex(player.id)+1}}</div>
+    <input class="player-name" [formControl]="player.name">
+    <div class="delete-btn" [ngStyle]="{'color': 'dark'+stateService.getColor(player.id)}" (click)="stateService.removePlayer(player.id)">X</div>
+</div>

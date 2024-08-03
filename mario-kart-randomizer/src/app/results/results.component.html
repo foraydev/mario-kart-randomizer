@@ -1,0 +1,14 @@
+<div class="race-container">
+    <div class="player-list-container">
+        <div class="title">FINAL RESULTS:</div>
+        <div class="player-input-container" *ngFor="let player of stateService.rankPlayers()">
+            <app-player-race [player]="player"></app-player-race>
+        </div>
+    </div>
+    <div class="submit-btn" (click)="stateService.setState('player-input')">
+        CHANGE PLAYERS
+    </div>
+    <div class="submit-btn" (click)="stateService.setState('settings')">
+        NEW RULES
+    </div>
+</div>

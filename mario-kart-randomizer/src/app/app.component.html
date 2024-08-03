@@ -1,0 +1,6 @@
+<div class="page-container">
+  <app-players *ngIf="stateService.gameState === 'player-input'"></app-players>
+  <app-settings *ngIf="stateService.gameState === 'settings'"></app-settings>
+  <app-race *ngIf="stateService.gameState === 'race'"></app-race>
+  <app-results *ngIf="stateService.gameState === 'results'"></app-results>
+</div>

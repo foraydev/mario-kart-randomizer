@@ -1,0 +1,41 @@
+.player-container {
+    width: 500px;
+    height: 100px;
+    position: relative;
+    border-radius: 10px;
+    border: solid 2px white;
+    max-width: 350px;
+}
+
+.player-num {
+    font-size: 1em;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.player-name {
+    width: 60%;
+    height: 50px;
+    font-size: 1.4em;
+    position: absolute;
+    right: 60px;
+    top: 25px;
+    color: black;
+}
+
+.delete-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    top: 30px;
+}
+
+.delete-btn:hover {
+    cursor: pointer;
+    color: black !important;
+}

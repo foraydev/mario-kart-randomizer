@@ -1,0 +1,12 @@
+<div class="player-select-container">
+    <div class="player-list-container">
+        <div class="title">PLAYERS</div>
+        <div class="player-input-container" *ngFor="let player of stateService.players">
+            <app-player-input [player]="player"></app-player-input>
+        </div>
+    </div>
+    <div class="player-btn" (click)="stateService.addPlayer()">+</div>
+    <div class="submit-btn" (click)="stateService.setState('settings')">
+        SETTINGS
+    </div>
+</div>

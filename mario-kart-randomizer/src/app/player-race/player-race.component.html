@@ -1,0 +1,9 @@
+<div class="player-container" [ngStyle]="{'background-color': stateService.getColor(player.id)}">
+    <div class="player-num" [ngStyle]="{'color': 'dark'+stateService.getColor(player.id)}">P{{stateService.getIndex(player.id)+1}}</div>
+    <div class="player-name">{{player.name.value}}</div>
+    <div class="player-points-add" *ngIf="stateService.gameState === 'race'">
+        <div>+</div>
+        <input class="player-points-input" type="number" [formControl]="player.pointsAdded">
+    </div>
+    <div class="player-points">{{player.points}}</div>
+</div>

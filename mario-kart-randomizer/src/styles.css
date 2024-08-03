@@ -1,0 +1,42 @@
+* {
+    font-family: "Exo 2", "Verdana";
+    color: white;
+}
+
+@font-face {
+    font-family: score;
+    src: url("assets/DSEG7Classic-Bold.ttf");
+}
+
+.submit-btn {
+    width: 200px;
+    background-color: goldenrod;
+    color: black;
+    font-size: 2em;
+    border-radius: 10px;
+    border: solid 5px white;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.submit-btn:hover {
+    cursor: pointer;
+    background-color: darkgoldenrod;
+}
+
+.back-btn {
+    width: 80px;
+    height: 30px;
+    background-color: gray;
+    color: black;
+    font-size: 1.4em;
+    border-radius: 5px;
+    border: solid 5px white;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.back-btn:hover {
+    cursor: pointer;
+    background-color: darkgray;
+}

@@ -1,0 +1,36 @@
+<div class="settings-container">
+    <div class="indiv-setting">
+        <div>Number of Races:</div>
+        <input id="num-races" class="settings-input" [formControl]="trackService.numberOfRaces" type="number" min="1" max="{{trackService.tracks.length}}">
+    </div>
+    <div class="indiv-setting">
+        <div>Course Selection:</div>
+        <select id="selection" class="settings-input" [formControl]="trackService.courseSelection">
+            <option *ngFor="let option of trackService.courseSelectionOptions">{{option}}</option>
+        </select>
+    </div>
+    <div class="indiv-setting" *ngIf="trackService.shouldUseSortingField()">
+        <div>Sorting Field:</div>
+        <select id="sort-field" class="settings-input" [formControl]="trackService.sortingField">
+            <option *ngFor="let option of trackService.sortingFields">{{option}}</option>
+        </select>
+    </div>
+    <div class="indiv-setting" *ngIf="trackService.shouldUseSortingOrder()">
+        <div>Sorting Order:</div>
+        <select id="sort-order" class="settings-input" [formControl]="trackService.sortingOrder">
+            <option *ngFor="let option of trackService.getSortingOptions()">{{option}}</option>
+        </select>
+    </div>
+    <div class="indiv-setting" *ngIf="trackService.shouldUseStartingCourse()">
+        <div>Starting Course:</div>
+        <select id="start-course" class="settings-input" [formControl]="trackService.startingCourse">
+            <option *ngFor="let option of trackService.getCourseDropdownOptions()" [ngStyle]="{'font-style': option === 'Random' ? 'italic' : ''}">{{option}}</option>
+        </select>
+    </div>
+    <div class="back-btn" (click)="stateService.setState('player-input')">
+        Back
+    </div>
+    <div class="submit-btn" (click)="trackService.generateSetOfTracks()">
+        GO
+    </div>
+</div>

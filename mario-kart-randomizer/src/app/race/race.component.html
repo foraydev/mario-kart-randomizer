@@ -1,0 +1,15 @@
+<div class="race-container">
+    <div class="player-list-container">
+        <div class="title">CURRENT RESULTS:</div>
+        <div class="player-input-container" *ngFor="let player of stateService.rankPlayers()">
+            <app-player-race [player]="player"></app-player-race>
+        </div>
+    </div>
+    <div class="current-race">
+        <div class="title race">{{trackService.getCurrentRace()}}</div>
+        <div class="cup race">{{trackService.getCurrentRaceCup() +" Cup"}}</div>
+    </div>
+    <div class="submit-btn" (click)="trackService.advanceRace()">
+        NEXT RACE
+    </div>
+</div>
