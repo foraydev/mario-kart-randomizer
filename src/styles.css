@@ -5,6 +5,11 @@
     color: white;
 }
 
+body {
+    margin: 0;
+    height: 100vh;
+}
+
 @font-face {
     font-family: score;
     src: url("assets/DSEG7Classic-Bold.ttf");

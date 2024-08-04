@@ -13,7 +13,11 @@ export class StateService {
         'red',
         'blue',
         'goldenrod',
-        'green'
+        'green',
+        'orange',
+        'cyan',
+        'hotpink',
+        'indigo'
     ]
 
     constructor() {
@@ -37,7 +41,7 @@ export class StateService {
     }
 
     public getColor(id: number):string {
-        return this.colors[this.getIndex(id) % 4];
+        return this.colors[this.getIndex(id) % this.colors.length];
     }
 
     public getIndex(id: number):number {
