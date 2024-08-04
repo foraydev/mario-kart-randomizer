@@ -4,6 +4,10 @@
     <div class="player-points-add" *ngIf="stateService.gameState === 'race'">
         <div>+</div>
         <input class="player-points-input" type="number" [formControl]="player.pointsAdded">
+        <mat-icon class="points-arrow">arrow_right</mat-icon>
+    </div>
+    <div class="player-points-placement" *ngIf="stateService.gameState === 'results'" [ngStyle]="stateService.getPositionStyle(player.id)">
+        {{stateService.getPosition(player.id)}}
     </div>
     <div class="player-points">{{player.points}}</div>
 </div>

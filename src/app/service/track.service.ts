@@ -4,6 +4,9 @@ import { Track } from '../model/track';
 import { VsConfig } from '../model/vsConfig';
 import { RandomService } from './random.service';
 import { StateService } from './state.service';
+import { RaceResult } from '../model/race-result';
+import { PlayerPlacement } from '../model/player-placement';
+import { Player } from '../model/player';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +16,8 @@ export class TrackService {
   public tracks: Track[];
 
   public tracksInRace: Track[];
+
+  public static results: RaceResult[];
 
   public numberOfRaces: FormControl;
   public startingCourse: FormControl;
@@ -35,7 +40,7 @@ export class TrackService {
     "Release Order"
   ];
 
-  private currentRace = 0;
+  public currentRace = 0;
 
   constructor(
     public stateService: StateService
@@ -46,6 +51,7 @@ export class TrackService {
 
     this.tracks = [];
     this.tracksInRace = [];
+    TrackService.results = [];
 
     this.generateTrackPool();
 
@@ -67,10 +73,15 @@ export class TrackService {
     return this.tracksInRace[this.currentRace].mk8Cup;
   }
 
+  public isFinalRace(): boolean {
+    return this.currentRace === this.tracksInRace.length - 1;
+  }
+
   public advanceRace(): void {
     this.stateService.players.forEach(player => {
       player.points += player.pointsAdded.value;
     });
+    TrackService.results.push(new RaceResult(this.currentRace + 1, this.getCurrentRace(), this.stateService.players.map(p => new PlayerPlacement(p))))
     if (this.currentRace + 1 >= this.tracksInRace.length) {
       this.stateService.setState('results');
     } else {
@@ -109,6 +120,7 @@ export class TrackService {
     this.stateService.players.forEach((player) => {
       player.points = 0;
     });
+    TrackService.results = [];
     let numOfRaces = this.numberOfRaces.value;
     if (this.courseSelection.value == "Random") {
       this.tracksInRace = RandomService.selectFromList(this.tracks, numOfRaces);

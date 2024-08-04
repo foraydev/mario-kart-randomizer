@@ -1,3 +1,5 @@
+@import '~material-icons/iconfont/material-icons.css';
+
 * {
     font-family: "Exo 2", "Verdana";
     color: white;
@@ -39,4 +41,12 @@
 .back-btn:hover {
     cursor: pointer;
     background-color: darkgray;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
 }

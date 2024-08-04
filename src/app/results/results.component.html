@@ -5,6 +5,9 @@
             <app-player-race [player]="player"></app-player-race>
         </div>
     </div>
+    <div class="results-chart">
+        <div class="highchart" [chart]="chart"></div>
+    </div>
     <div class="submit-btn" (click)="stateService.setState('player-input')">
         CHANGE PLAYERS
     </div>

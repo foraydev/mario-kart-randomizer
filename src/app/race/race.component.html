@@ -5,11 +5,12 @@
             <app-player-race [player]="player"></app-player-race>
         </div>
     </div>
-    <div class="current-race">
+    <div class="current-race mb-15 mt-10">
+        <div class="cup race mb-15">Race {{trackService.currentRace + 1}}/{{trackService.tracksInRace.length}}:</div>
         <div class="title race">{{trackService.getCurrentRace()}}</div>
         <div class="cup race">{{trackService.getCurrentRaceCup() +" Cup"}}</div>
     </div>
     <div class="submit-btn" (click)="trackService.advanceRace()">
-        NEXT RACE
+        {{trackService.isFinalRace() ? 'FINISH' : 'NEXT RACE'}}
     </div>
 </div>

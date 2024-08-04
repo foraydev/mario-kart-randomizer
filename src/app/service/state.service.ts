@@ -12,7 +12,7 @@ export class StateService {
     public colors: string[] = [
         'red',
         'blue',
-        'yellow',
+        'goldenrod',
         'green'
     ]
 
@@ -42,5 +42,22 @@ export class StateService {
 
     public getIndex(id: number):number {
         return this.players.findIndex(p => p.id === id);
+    }
+
+    public getPosition(id: number):string {
+        let score = this.players[this.getIndex(id)].points;
+        let position = this.rankPlayers().findIndex(p => p.points === score) + 1;
+        if (position === 1) { return '1st'; }
+        if (position === 2) { return '2nd'; }
+        if (position === 3) { return '3rd'; }
+        return position.toString() + 'th';
+    }
+
+    public getPositionStyle(id: number):{'color': string, 'font-size': string} {
+        let position = this.getPosition(id);
+        if (position === '1st') { return {'color': 'gold', 'font-size': '2.4em'}; }
+        if (position === '2nd') { return {'color': 'silver', 'font-size': '2.2em'}; }
+        if (position === '3rd') { return {'color': '#8B4513', 'font-size': '2.0em'}; }
+        return {'color': 'ff4500', 'font-size': '1.8em'};;
     }
 }
