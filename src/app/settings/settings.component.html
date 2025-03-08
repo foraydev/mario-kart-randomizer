@@ -27,6 +27,14 @@
             <option *ngFor="let option of trackService.getCourseDropdownOptions()" [ngStyle]="{'font-style': option === 'Random' ? 'italic' : ''}">{{option}}</option>
         </select>
     </div>
+    <div class="indiv-setting checkbox-container">
+        <div>Include Booster Course Pass tracks:</div>
+        <input class="settings-checkbox" type="checkbox" [formControl]="trackService.useBoosterCoursePass">
+    </div>
+    <div class="indiv-setting checkbox-container">
+        <div>Include CTGPDX tracks:</div>
+        <input class="settings-checkbox" type="checkbox" [formControl]="trackService.useCTGPDX">
+    </div>
     <div class="back-btn" (click)="stateService.setState('player-input')">
         Back
     </div>

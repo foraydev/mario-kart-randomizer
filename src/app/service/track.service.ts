@@ -116,6 +116,7 @@ export class TrackService {
   }
 
   public generateSetOfTracks(): void {
+    this.generateTrackPool();
     this.currentRace = 0;
     this.stateService.players.forEach((player) => {
       player.points = 0;
@@ -302,12 +303,20 @@ export class TrackService {
       this.tracks.push(new Track("", "Teehee Trails", 144, 168.7, "Desert", "Squid", "Custom"));
       this.tracks.push(new Track("", "Dry Dry Falls", 145, 177.2, "Desert", "Shine Sprite", "Custom"));
       this.tracks.push(new Track("SNES", "Donut Plains 2", 146, 8, "Grass", "Shine Sprite", "Flower"));
-      this.tracks.push(new Track("GP2", "Pac Mountain", 147, 88.7, "Grass", "Shine Sprite", "GP"));
+      this.tracks.push(new Track("GP", "Pac Mountain", 147, 88.7, "Grass", "Shine Sprite", "GP"));
       this.tracks.push(new Track("", "Vacay Bay", 148, 162.5, "Beach", "Shine Sprite", "Custom"));
       this.tracks.push(new Track("GPDX", "Kingdom Way", 149, 120.25, "Unique", "Ice Flower", "GP"));
       this.tracks.push(new Track("", "Alpine Skyway", 150, 168.65, "Snow", "Ice Flower", "Custom"));
       this.tracks.push(new Track("Wii", "Bowser's Castle", 151, 103, "Lava", "Ice Flower", "Special"));
       this.tracks.push(new Track("GBA", "Rainbow Road", 152, 56, "Space", "Ice Flower", "Special"));
+      this.tracks.push(new Track("SNES", "Choco Island 1", 153, 6, "Mountain", "Prankster Comet", "Flower"));
+      this.tracks.push(new Track("DKR", "Haunted Woods", 154, 36.56, "Ghost", "Prankster Comet", "DKR"));
+      this.tracks.push(new Track("3DS", "Bowser's Castle", 155, 119, "Lava", "Prankster Comet", "Special"));
+      this.tracks.push(new Track("DS", "Rainbow Road", 156, 88, "Space", "Prankster Comet", "Special"));
+      this.tracks.push(new Track("GCN", "Mushroom Bridge", 157, 61, "Grass", "Coin", "Flower"));
+      this.tracks.push(new Track("GBA", "Luigi Circuit", 158, 45, "Circuit", "Coin", "Lightning"));
+      this.tracks.push(new Track("DS", "Delfino Square", 159, 78, "City", "Coin", "Flower"));
+      this.tracks.push(new Track("Tour", "Piranha Plant Pipeline", 160, 36.56, "Unique", "Coin", "Tour"));
     }
   }
 }

@@ -1,14 +1,15 @@
 <div class="race-container">
-    <div class="player-list-container">
-        <div class="title">CURRENT RESULTS:</div>
-        <div class="player-input-container" *ngFor="let player of stateService.rankPlayers()">
-            <app-player-race [player]="player"></app-player-race>
-        </div>
-    </div>
+    <div class="title">CURRENT RESULTS:</div>
     <div class="current-race mb-15 mt-10">
         <div class="cup race mb-15">Race {{trackService.currentRace + 1}}/{{trackService.tracksInRace.length}}:</div>
         <div class="title race">{{trackService.getCurrentRace()}}</div>
         <div class="cup race">{{trackService.getCurrentRaceCup() +" Cup"}}</div>
+    </div>
+    <div class="player-list-container">
+        <div class="results-txt">Results from {{trackService.getCurrentRace()}}:</div>
+        <div class="player-input-container" *ngFor="let player of stateService.rankPlayers()">
+            <app-player-race [player]="player"></app-player-race>
+        </div>
     </div>
     <div class="submit-btn" (click)="trackService.advanceRace()">
         {{trackService.isFinalRace() ? 'FINISH' : 'NEXT RACE'}}

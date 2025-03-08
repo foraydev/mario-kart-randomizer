@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { TrackService } from './service/track.service';
-import { SettingsComponent } from './settings/settings.component';
 import { StateService } from './service/state.service';
 
 @Component({

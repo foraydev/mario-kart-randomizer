@@ -31,7 +31,7 @@ export class ResultsComponent {
       xAxis: {
         labels: {
           formatter: (val) => {
-            if (val.pos % 1 !== 0) { return ''; }
+            if (val.pos % 1 !== 0 || val.pos >= this.trackService.tracksInRace.length) { return ''; }
             return this.trackService.tracksInRace[val.pos].getCourseName()
           },
           step: 1

@@ -23,7 +23,7 @@ export class RandomService {
         }
 
         while (retVal.length < num) {
-            var randomIndex = Math.floor(Math.random()*bucket.length);
+            var randomIndex = Math.floor(Math.random()*(bucket.length - 1));
             retVal.push(list[bucket.splice(randomIndex, 1)[0]]);
         }
         return retVal;

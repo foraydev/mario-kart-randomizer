@@ -1,7 +1,7 @@
 @import '~material-icons/iconfont/material-icons.css';
 
 * {
-    font-family: "Exo 2", "Verdana";
+    font-family: "Racing Sans One", "Verdana";
     color: white;
 }
 
@@ -13,6 +13,12 @@ body {
 @font-face {
     font-family: score;
     src: url("assets/DSEG7Classic-Bold.ttf");
+}
+
+.racing-sans-one-regular {
+    font-family: "Racing Sans One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .submit-btn {

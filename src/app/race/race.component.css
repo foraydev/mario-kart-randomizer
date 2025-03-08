@@ -1,5 +1,6 @@
-.player-select-container {
+.race-container {
     width: 100%;
+    padding: 20px;
 }
 
 .title {
@@ -7,6 +8,13 @@
     text-align: left;
     font-size: 30px;
     color: white;
+}
+
+.current-race {
+    border: 3px solid grey;
+    border-radius: 5px;
+    width: 50%;
+    margin: 10px auto 20px auto;
 }
 
 .player-list-container {
@@ -47,4 +55,12 @@
 
 .race {
     text-align: center;
+}
+
+.results-txt {
+    width:100%;
+    text-align: center;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 10px;
 }
