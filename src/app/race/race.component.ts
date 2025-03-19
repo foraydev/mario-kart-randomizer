@@ -8,8 +8,14 @@ import { TrackService } from '../service/track.service';
   styleUrls: ['./race.component.css']
 })
 export class RaceComponent {
+  cupIconBaseUrl = '../../assets/images/cups/';
+
   constructor(
     public stateService: StateService,
     public trackService: TrackService
   ) {}
+
+  getCupIconUrl(cup: string): string {
+    return this.cupIconBaseUrl + cup.replace(' ', '_').toLowerCase() + '_icon.png';
+  }
 }

@@ -1,0 +1,7 @@
+<div class="character-select-container">
+    <div *ngFor="let character of characterService.characters">
+        <div [ngClass]="control.value === character.key ? 'character-icon selected' : 'character-icon'" (click)="setNewValue(character.key)">
+            <img class="character-icon-img" [src]="characterService.getImageUrl(character.key)">
+        </div>
+    </div>
+</div>

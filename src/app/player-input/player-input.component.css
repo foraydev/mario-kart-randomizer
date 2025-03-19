@@ -40,3 +40,40 @@
     cursor: pointer;
     color: black !important;
 }
+
+.character-icon-container {
+    position: absolute;
+    bottom: 8px;
+    left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 65px;
+    height: 65px;
+    opacity: 1;
+}
+
+.character-icon-container:hover {
+    background-color: darkgrey;
+    opacity: 0.5;
+}
+
+.character-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.selection-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}

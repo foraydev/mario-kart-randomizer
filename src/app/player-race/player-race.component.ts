@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Player } from '../model/player';
 import { StateService } from '../service/state.service';
+import { CharacterService } from '../service/character.service';
 
 @Component({
   selector: 'app-player-race',
@@ -12,7 +13,8 @@ export class PlayerRaceComponent {
   player: Player = new Player();
 
   constructor(
-    public stateService: StateService
+    public stateService: StateService,
+    public characterService: CharacterService
   ){
 
   }

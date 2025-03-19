@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Player } from '../model/player';
 import { StateService } from '../service/state.service';
+import { CharacterService } from '../service/character.service';
 
 @Component({
   selector: 'app-player-input',
@@ -11,9 +12,14 @@ export class PlayerInputComponent {
   @Input()
   player: Player = new Player();
 
-  constructor(
-    public stateService: StateService
-  ){
+  showingSelectionMenu: boolean = false;
 
+  constructor(
+    public stateService: StateService,
+    public characterService: CharacterService
+  ) {}
+
+  toggleShowingSelectionMenu() {
+    this.showingSelectionMenu = !this.showingSelectionMenu;
   }
 }

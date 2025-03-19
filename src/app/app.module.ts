@@ -11,6 +11,7 @@ import { RaceComponent } from './race/race.component';
 import { ResultsComponent } from './results/results.component';
 import { PlayerRaceComponent } from './player-race/player-race.component';
 import { ChartModule } from 'angular-highcharts';
+import { CharacterSelectComponent } from './character-select/character-select.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ChartModule } from 'angular-highcharts';
     PlayerInputComponent,
     PlayerRaceComponent,
     RaceComponent,
-    ResultsComponent
+    ResultsComponent,
+    CharacterSelectComponent
   ],
   imports: [
     BrowserModule,

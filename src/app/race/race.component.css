@@ -11,10 +11,14 @@
 }
 
 .current-race {
+    position: relative;
     border: 3px solid grey;
     border-radius: 5px;
     width: 50%;
+    min-width: 500px;
     margin: 10px auto 20px auto;
+    padding-bottom: 20px;
+    padding-top: 10px;
 }
 
 .player-list-container {
@@ -63,4 +67,18 @@
     font-size: 22px;
     color: white;
     margin-bottom: 10px;
+}
+
+.cup-icon-container {
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    width: 100px;
+    height: 100px;
+}
+
+.cup-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
 }

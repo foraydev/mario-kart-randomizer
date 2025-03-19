@@ -9,7 +9,7 @@ export class Player {
     public id: number;
 
     constructor() {
-        this.character = new FormControl("Mario");
+        this.character = new FormControl("mario");
         this.name = new FormControl("");
         this.pointsAdded = new FormControl(0);
         this.points = 0;

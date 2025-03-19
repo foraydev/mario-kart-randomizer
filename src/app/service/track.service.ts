@@ -70,6 +70,7 @@ export class TrackService {
   }
 
   public getCurrentRaceCup(): string {
+    console.log('tracks: ', this.tracksInRace);
     return this.tracksInRace[this.currentRace].mk8Cup;
   }
 
@@ -143,6 +144,9 @@ export class TrackService {
       }
       let startingTrackName = this.startingCourse.value === "Random" ? RandomService.selectFromList(this.tracks, 1)[0].getCourseName() : this.startingCourse.value;
       let startingIndex = this.tracks.findIndex((t: Track) => { return t.getCourseName() === startingTrackName; });
+      console.log('starting course: '+startingTrackName);
+      console.log('startingIndex: '+startingIndex);
+      console.log(this.tracks.map(t => t.getCourseName()));
       this.tracksInRace = [];
       for (let i = 0; i < numOfRaces; i++) {
         let currIndex = this.sortingOrder.value.includes("Ascending") ? (startingIndex + i) % this.tracks.length : (startingIndex - i) % this.tracks.length;

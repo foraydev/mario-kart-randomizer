@@ -22,6 +22,7 @@ export class Track {
     }
 
     getCourseName(): string {
+        if (this.prefix === "") { return this.name; }
         return this.prefix + " " + this.name;
     }
 

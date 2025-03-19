@@ -1,9 +1,11 @@
 <div class="race-container">
     <div class="title">CURRENT RESULTS:</div>
     <div class="current-race mb-15 mt-10">
+        <div class="cup-icon-container">
+            <img class="cup-icon" [src]="getCupIconUrl(trackService.getCurrentRaceCup())">
+        </div>
         <div class="cup race mb-15">Race {{trackService.currentRace + 1}}/{{trackService.tracksInRace.length}}:</div>
         <div class="title race">{{trackService.getCurrentRace()}}</div>
-        <div class="cup race">{{trackService.getCurrentRaceCup() +" Cup"}}</div>
     </div>
     <div class="player-list-container">
         <div class="results-txt">Results from {{trackService.getCurrentRace()}}:</div>

@@ -10,4 +10,7 @@
         {{stateService.getPosition(player.id)}}
     </div>
     <div class="player-points">{{player.points}}</div>
+    <div class="character-icon-container">
+        <img class="character-icon" [src]="characterService.getImageUrl(player.character.value)">
+    </div>
 </div>

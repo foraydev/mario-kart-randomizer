@@ -2,4 +2,10 @@
     <div class="player-num" [ngStyle]="{'color': 'dark'+stateService.getColor(player.id)}">P{{stateService.getIndex(player.id)+1}}</div>
     <input class="player-name" [formControl]="player.name">
     <div class="delete-btn" [ngStyle]="{'color': 'dark'+stateService.getColor(player.id)}" (click)="stateService.removePlayer(player.id)">X</div>
+    <div class="character-icon-container" (click)="toggleShowingSelectionMenu()">
+        <img class="character-icon" [src]="characterService.getImageUrl(player.character.value)">
+    </div>
+    <div class="selection-container" *ngIf="showingSelectionMenu" (click)="toggleShowingSelectionMenu()">
+        <app-character-select [control]="player.character"></app-character-select>
+    </div>
 </div>
