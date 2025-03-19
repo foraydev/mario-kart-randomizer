@@ -10,6 +10,8 @@ import { TrackService } from '../service/track.service';
 export class RaceComponent {
   cupIconBaseUrl = 'assets/images/cups/';
 
+  courseIconBaseUrl = 'assets/images/courses/'
+
   constructor(
     public stateService: StateService,
     public trackService: TrackService
@@ -17,5 +19,9 @@ export class RaceComponent {
 
   getCupIconUrl(cup: string): string {
     return this.cupIconBaseUrl + cup.replace(' ', '_').toLowerCase() + '_icon.png';
+  }
+
+  getCourseImageUrl(track: string): string {
+    return this.courseIconBaseUrl + track.replaceAll(' ', '_').replaceAll('\'', '').replaceAll('-', '_').toLowerCase() + '.webp';
   }
 }

@@ -15,10 +15,12 @@
     border: 3px solid grey;
     border-radius: 5px;
     width: 50%;
-    min-width: 500px;
+    min-width: min(500px, 85%);
     margin: 10px auto 20px auto;
-    padding-bottom: 20px;
-    padding-top: 10px;
+    padding-bottom: 40px;
+    padding-top: 20px;
+    background-size: cover;
+    background-position: 100%;
 }
 
 .player-list-container {
@@ -50,15 +52,9 @@
     cursor: pointer;
 }
 
-.cup {
-    width:100%;
-    font-size: 20px;
-    color: lightgray;
-    font-style: italic;
-}
-
 .race {
     text-align: center;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .results-txt {

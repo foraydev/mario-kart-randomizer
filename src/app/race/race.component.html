@@ -1,6 +1,6 @@
 <div class="race-container">
     <div class="title">CURRENT RESULTS:</div>
-    <div class="current-race mb-15 mt-10">
+    <div class="current-race mb-15 mt-10" [ngStyle]="{'background-image': 'url(' + getCourseImageUrl(trackService.getCurrentRace()) + ')'}">
         <div class="cup-icon-container">
             <img class="cup-icon" [src]="getCupIconUrl(trackService.getCurrentRaceCup())">
         </div>

@@ -30,11 +30,13 @@ export class TrackService {
   public courseSelectionOptions = [
     "Random",
     "In Order (MK8DX)",
+    "In Order (Alphabetical)",
     "In Order (Release)"
   ];
 
   public sortingFields = [
     "None",
+    "Alphabetical",
     "Difficulty",
     "MK8DX Order",
     "Release Order"
@@ -70,7 +72,6 @@ export class TrackService {
   }
 
   public getCurrentRaceCup(): string {
-    console.log('tracks: ', this.tracksInRace);
     return this.tracksInRace[this.currentRace].mk8Cup;
   }
 
@@ -126,7 +127,16 @@ export class TrackService {
     let numOfRaces = this.numberOfRaces.value;
     if (this.courseSelection.value == "Random") {
       this.tracksInRace = RandomService.selectFromList(this.tracks, numOfRaces);
-      if (this.sortingField.value !== "None") {
+      if (this.sortingField.value === "Alphabetical") {
+        let config: VsConfig = this.getVsConfig();
+        let sortedList = RandomService.toSorted(this.tracks, (a: Track, b: Track) => { return a.name.localeCompare(b.name); });
+        this.tracksInRace.forEach(t => t.setSeedFromSortedList(config, sortedList));
+        if (this.sortingOrder.value.includes("Ascending")) {
+          this.tracksInRace.sort((a: Track, b: Track) => { return a.seed - b.seed; });
+        } else {
+          this.tracksInRace.sort((a: Track, b: Track) => { return b.seed - a.seed; });
+        }
+      } else if (this.sortingField.value !== "None") {
         let config: VsConfig = this.getVsConfig();
         this.tracksInRace.forEach(t => t.setSeed(config));
         if (this.sortingOrder.value.includes("Ascending")) {
@@ -139,14 +149,13 @@ export class TrackService {
       let tempOrder;
       if (this.courseSelection.value == "In Order (MK8DX)") {
         tempOrder = RandomService.toSorted(this.tracks, (a: Track, b: Track) => { return a.numberInMk8 - b.numberInMk8; });
+      } else if (this.courseSelection.value == "In Order (Alphabetical)") {
+        tempOrder = RandomService.toSorted(this.tracks, (a: Track, b: Track) => { return a.name.localeCompare(b.name); });
       } else {
         tempOrder = RandomService.toSorted(this.tracks, (a: Track, b: Track) => { return a.numberInSeries - b.numberInSeries; });
       }
       let startingTrackName = this.startingCourse.value === "Random" ? RandomService.selectFromList(this.tracks, 1)[0].getCourseName() : this.startingCourse.value;
       let startingIndex = this.tracks.findIndex((t: Track) => { return t.getCourseName() === startingTrackName; });
-      console.log('starting course: '+startingTrackName);
-      console.log('startingIndex: '+startingIndex);
-      console.log(this.tracks.map(t => t.getCourseName()));
       this.tracksInRace = [];
       for (let i = 0; i < numOfRaces; i++) {
         let currIndex = this.sortingOrder.value.includes("Ascending") ? (startingIndex + i) % this.tracks.length : (startingIndex - i) % this.tracks.length;

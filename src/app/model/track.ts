@@ -67,12 +67,26 @@ export class Track {
         let trackValue: number = this.getDifficulty();
         if (config.sortingField === "MK8DX Order") {
             minVal = 0;
-            maxVal = 152;
+            maxVal = 160;
             trackValue = this.numberInMk8;
         } else if (config.sortingField === "Release Order") {
             minVal = 0;
             maxVal = 181;
             trackValue = this.numberInSeries;
+        }
+        let randomStrength = config.sortOrder.includes("Somewhat") ? 0.2 : 0;
+        let salt = randomStrength === 0 ? 0 : (maxVal - minVal) * RandomService.random(-1, 1);
+        this.seed = trackValue + randomStrength * salt;
+    }
+
+    public setSeedFromSortedList(config: VsConfig, sortedList: Track[]): void {
+        let minVal: number = 0;
+        let maxVal: number = 4;
+        let trackValue: number = 0;
+        if (config.sortingField === "Alphabetical") {
+            minVal = 0;
+            maxVal = 160;
+            trackValue = sortedList.findIndex(t => t.getCourseName() === this.getCourseName());
         }
         let randomStrength = config.sortOrder.includes("Somewhat") ? 0.2 : 0;
         let salt = randomStrength === 0 ? 0 : (maxVal - minVal) * RandomService.random(-1, 1);
