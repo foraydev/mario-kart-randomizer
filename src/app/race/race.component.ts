@@ -8,7 +8,7 @@ import { TrackService } from '../service/track.service';
   styleUrls: ['./race.component.css']
 })
 export class RaceComponent {
-  cupIconBaseUrl = '../../assets/images/cups/';
+  cupIconBaseUrl = 'assets/images/cups/';
 
   constructor(
     public stateService: StateService,

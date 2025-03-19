@@ -408,7 +408,7 @@ export class CharacterService {
         },
     ];
 
-    baseUrl: string = '../../assets/images/characters/';
+    baseUrl: string = 'assets/images/characters/';
 
     public getImageUrl(key: string): string {
         return this.baseUrl + this.characters.find(c => c.key === key)?.imageUrl;
