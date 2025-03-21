@@ -155,7 +155,7 @@ export class TrackService {
         tempOrder = RandomService.toSorted(this.tracks, (a: Track, b: Track) => { return a.numberInSeries - b.numberInSeries; });
       }
       let startingTrackName = this.startingCourse.value === "Random" ? RandomService.selectFromList(this.tracks, 1)[0].getCourseName() : this.startingCourse.value;
-      let startingIndex = this.tracks.findIndex((t: Track) => { return t.getCourseName() === startingTrackName; });
+      let startingIndex = tempOrder.findIndex((t: Track) => { return t.getCourseName() === startingTrackName; });
       this.tracksInRace = [];
       for (let i = 0; i < numOfRaces; i++) {
         let currIndex = this.sortingOrder.value.includes("Ascending") ? (startingIndex + i) % this.tracks.length : (startingIndex - i) % this.tracks.length;
